@@ -1,3 +1,4 @@
+import authRouter from "./routes/auth.routes";
 import pool from "./config/database";
 import express from "express";
 import cors from "cors";
@@ -6,6 +7,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/v1/auth", authRouter);
 
 app.get("/api/v1/health", async (req, res) => {
   try {
